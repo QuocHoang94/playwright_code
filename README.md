@@ -1,13 +1,21 @@
-# Introduction 
-Run test cases for the website: https://ultimateqa.com/complicated-page.
+# Why is this repo for?
+This repository contains simple automation test framework written with TypeScript and Playwright and implements Page Object Model Pattern.
+# Environment
+* Make sure you have node.js installed. If you don't, please visit official [website](https://nodejs.org/en/download/) for instructions
+* Run npm install to install node modules
+# Run test
+* That's it, now you can run tests with npx playwright test - it will run test in 3 browsers (chromium, firefox, webkit) in parallel.
+* If you want to run it in headed mode npx playwright test --headed, then change configuration to headless: true in playwright.config.js
+* Another way to run your tests is by installing the 'Playwright Test for VSCode' extension in Visual Studio Code.
+# Retries
+* Test retries are a way to automatically re-run a test when it fails. This is useful when a test is flaky and fails intermittently. Test retries are configured in the configuration file.
+* You can configure retries in the configuration file: 
+<!-- import { defineConfig } from '@playwright/test';
 
-# Getting Started
-1. Ensure that Node.js is installed and if clone this repository , run npm install to get node_modules.
-2. Follow the instructions to install Playwright. https://playwright.dev/docs/intro#installing-playwright
-3. Install the Playwright Test extension for VSCode to make running test cases easier.
-4. You can run your tests with the playwright test command. This will run your tests on all browsers as configured in the playwright.config file. Tests run in headless mode by default meaning no browser window will be opened while running the tests and results will be seen in the terminal. => npx playwright test
-5. The HTML Reporter shows you a full report of your tests allowing you to filter the report by browsers, passed tests, failed tests, skipped tests and flaky tests. By default, the HTML report is opened automatically if some of the tests failed, otherwise you can open it with the following command. => npx playwright show-report
-
-# Build and Test
-
-# Contribute
+export default defineConfig({
+  // Give failing tests 3 retry attempts
+  retries: 3,
+}); -->
+# Report
+* HTML reporter produces a self-contained folder that contains report for the test run that can be served as a web page.
+* A quick way of opening the last test run report is: npx playwright show-report
